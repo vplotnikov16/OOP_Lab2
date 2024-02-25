@@ -78,7 +78,13 @@ public:
 
 int main()
 {
-    RightTriangle* rt = new RightTriangle(3);
+    Triangle* rt = new RightTriangle(3);
+    // Triangle t;
+    // RightTriangle rt2 = t; нельзя
+    // RightTriangle* rt3;
+    // rt3 = new Triangle(); тоже нельзя (правило приведение типов не работает в таком порядке)
+
+
     delete rt;
 
     return 0;
