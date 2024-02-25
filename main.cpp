@@ -81,16 +81,40 @@ public:
     }
 };
 
+class CompositionOfTriangles
+{
+protected:
+    Triangle* t1;
+    Triangle* t2;
+public:
+    CompositionOfTriangles()
+    {
+        printf("CompositionOfTriangles()\n");
+        t1 = new Triangle(1, 1, 1);
+        t2 = new Triangle(2, 2, 2);
+    }
+    CompositionOfTriangles(const CompositionOfTriangles &cot)
+    {
+        printf("CompositionOfTriangles(const CompositionOfTriangles &cot)\n");
+        t1 = cot.t1;
+        t2 = cot.t2;
+    }
+    ~CompositionOfTriangles()
+    {
+        printf("~CompositionOfTriangles()\n");
+        delete t1;
+        delete t2;
+    }
+};
+
+
 int main()
 {
-    Triangle* rt = new RightTriangle(3);
-    RightTriangle* rt2 = new RightTriangle(4);
+    CompositionOfTriangles* cot1 = new CompositionOfTriangles();
+    CompositionOfTriangles* cot2 = new CompositionOfTriangles(*cot1);
 
-    // у rt доступны методы perimeter и scale
-    // у rt2 доступны методы perimeter, scale и area
-
-    delete rt;
-    delete rt2;
+    delete cot1;
+    delete cot2;
 
     return 0;
 }
