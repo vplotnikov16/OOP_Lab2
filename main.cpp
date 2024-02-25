@@ -50,10 +50,36 @@ float Triangle::perimeter()
     return a + b + c;
 }
 
+class RightTriangle : public Triangle
+{
+public:
+    RightTriangle() : Triangle()
+    {
+        printf("RightTriangle()\n");
+    }
+
+    RightTriangle(const float a) : Triangle(a, a, a)
+    {
+        printf("RightTriangle(const float a)\n");
+    }
+
+    RightTriangle(const RightTriangle& rt)
+    {
+        printf("RightTriangle(const RightTriangle &rt)");
+        a = b = c = rt.a;
+    }
+
+    ~RightTriangle()
+    {
+        printf("%f, %f, %f\n", a, b, c);
+        printf("~RightTriangle()\n");
+    }
+};
+
 int main()
 {
-    Triangle *t = new Triangle(3, 4, 5);
-    printf("%f", t->perimeter());
+    RightTriangle* rt = new RightTriangle(3);
+    delete rt;
 
     return 0;
 }
