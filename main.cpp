@@ -37,10 +37,13 @@ public:
 
 int main()
 {
-    {
-        Triangle t;
-        Triangle t2(3, 4, 5);
-        Triangle t3(t2);
-    }
+    Triangle* t = new Triangle();
+    Triangle* t2 = new Triangle(3, 4, 5);
+    Triangle* t3 = new Triangle(*t2);
+
+    delete t;
+    delete t2;
+    delete t3;
+
     return 0;
 }
