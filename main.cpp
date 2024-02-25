@@ -74,12 +74,20 @@ public:
         printf("%f, %f, %f\n", a, b, c);
         printf("~RightTriangle()\n");
     }
+
+    float area()
+    {
+        return a * a * 0.43301270189;
+    }
 };
 
 int main()
 {
     Triangle* rt = new RightTriangle(3);
     RightTriangle* rt2 = new RightTriangle(4);
+
+    // у rt доступны методы perimeter и scale
+    // у rt2 доступны методы perimeter, scale и area
 
     delete rt;
     delete rt2;
