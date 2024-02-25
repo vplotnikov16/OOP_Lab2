@@ -34,19 +34,26 @@ public:
         printf("%f, %f, %f\n", a, b, c);
         printf("~Triangle()\n");
     }
+
     void scale(float k)
     {
         a = a * k;
         b = b * k;
         c = c * k;
     }
+
+    float perimeter();
 };
+
+float Triangle::perimeter()
+{
+    return a + b + c;
+}
 
 int main()
 {
     Triangle *t = new Triangle(3, 4, 5);
-    t->scale(2);
-    delete t;
+    printf("%f", t->perimeter());
 
     return 0;
 }
