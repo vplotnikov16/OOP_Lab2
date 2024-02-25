@@ -3,9 +3,10 @@ using namespace std;
 
 class Triangle
 {
-public:
+protected:
     float a, b, c;
 
+public:
     Triangle()
     {
         printf("Triange()\n");
@@ -33,17 +34,19 @@ public:
         printf("%f, %f, %f\n", a, b, c);
         printf("~Triangle()\n");
     }
+    void scale(float k)
+    {
+        a = a * k;
+        b = b * k;
+        c = c * k;
+    }
 };
 
 int main()
 {
-    Triangle* t = new Triangle();
-    Triangle* t2 = new Triangle(3, 4, 5);
-    Triangle* t3 = new Triangle(*t2);
-
+    Triangle *t = new Triangle(3, 4, 5);
+    t->scale(2);
     delete t;
-    delete t2;
-    delete t3;
 
     return 0;
 }
