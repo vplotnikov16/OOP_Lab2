@@ -86,6 +86,7 @@ class CompositionOfTriangles
 protected:
     Triangle* t1;
     Triangle* t2;
+
 public:
     CompositionOfTriangles()
     {
@@ -93,18 +94,23 @@ public:
         t1 = new Triangle(1, 1, 1);
         t2 = new Triangle(2, 2, 2);
     }
-    CompositionOfTriangles(const float a1, const float b1, const float c1, const float a2, const float b2, const float c2)
+
+    CompositionOfTriangles(const float a1, const float b1, const float c1, const float a2, const float b2,
+                           const float c2)
     {
-        printf("CompositionOfTriangles(const float a1, const float b1, const float c1, const float a2, const float b2, const float c2)");
+        printf(
+            "CompositionOfTriangles(const float a1, const float b1, const float c1, const float a2, const float b2, const float c2)");
         t1 = new Triangle(a1, b1, c1);
         t2 = new Triangle(a2, b2, c2);
     }
-    CompositionOfTriangles(const CompositionOfTriangles &cot)
+
+    CompositionOfTriangles(const CompositionOfTriangles& cot)
     {
         printf("CompositionOfTriangles(const CompositionOfTriangles &cot)\n");
         t1 = new Triangle(*cot.t1);
         t2 = new Triangle(*cot.t2);
     }
+
     ~CompositionOfTriangles()
     {
         printf("~CompositionOfTriangles()\n");
