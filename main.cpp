@@ -4,13 +4,12 @@ using namespace std;
 class Triangle
 {
 protected:
-    float a, b, c;
+    float a{1};
 
 public:
-    Triangle()
+    Triangle() : a(1), b(1), c(1)
     {
         printf("Triange()\n");
-        a = b = c = 1;
     }
 
     Triangle(const float a, const float b, const float c)
@@ -21,12 +20,9 @@ public:
         this->c = c;
     }
 
-    Triangle(const Triangle& t)
+    Triangle(const Triangle& t) : a(t.a), b(t.b), c(t.c)
     {
         printf("Triangle(const Triangle &t)\n");
-        a = t.a;
-        b = t.b;
-        c = t.c;
     }
 
     ~Triangle()
